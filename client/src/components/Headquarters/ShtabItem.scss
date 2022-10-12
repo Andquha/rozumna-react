@@ -1,0 +1,98 @@
+.Shtab{
+    font-family: 'Montserrat';
+
+    display: flex;
+    align-items: center;
+    
+    width: 50%;
+    &_map{
+        width: 30%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        padding: 2rem 0rem 2rem 2rem;
+        img{
+            width: 17.9rem;
+            height: 14.5rem;
+
+            margin-bottom: 1rem;
+        }
+        .Shtab_map_info{
+            display: flex;
+            justify-content: space-between;
+
+            width: 100%;
+            .Shtab_map_region{
+                font-weight: 400;
+                font-size: 1rem;
+                line-height: 120%;
+
+                color: #000;
+            }
+            .Shtab_map_link{
+                font-weight: 400;
+                font-size: 1rem;
+                line-height: 120%;
+
+                color: #6382cf;
+            }
+        }
+    }
+    &_info{
+        width: 70%;
+        
+        display: flex;
+        flex-direction: column;
+
+        padding: 2rem 2rem 2rem 5rem;
+        .Shtab_name{
+            font-weight: 600;
+            font-size: 1.8rem;
+            line-height: 120%;
+
+            color: #000;
+
+            margin-bottom: 1rem;
+        }
+        .Shtab_region{
+            font-weight: 600;
+            font-size: 1.4rem;
+            line-height: 120%;
+
+            color: #000;
+
+            margin-bottom: 1.2rem;
+        }
+        .Shtab_contacts{
+            &_name{
+                font-weight: 400;
+                font-size: 1.4rem;
+                line-height: 120%;
+
+                color: #000;
+
+                margin-bottom: 0.3rem;
+            }
+            &_phone{
+                font-weight: 400;
+                font-size: 1.4rem;
+                line-height: 120%;
+
+                color: #6382cf;
+
+                margin-bottom: 0.6rem;
+            }
+            &_link{
+                font-weight: 700;
+                font-size: 1.2rem;
+                line-height: 120%;
+
+                color: #6382cf;
+
+                margin-top: 1.5rem;
+            }
+        }
+    }
+}

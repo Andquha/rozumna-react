@@ -1,0 +1,21 @@
+.Button{
+    padding: 0.8rem 2.1rem;
+
+    border-radius: 1.9rem;
+
+    color: #6382cf;
+    background-color: #FFF;
+    border: 0.1rem solid #6382cf;
+
+    font-family: 'Montserrat';
+    font-weight: 300;
+    font-size: 1.2rem;
+
+    cursor: pointer;
+    &.active{
+        color: #FFF;
+        background-color: #6382cf;
+
+        font-weight: 600;
+    }
+}

@@ -1,31 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-import React, { useEffect, useState } from 'react';
-import axios from "axios";
+import './App.scss';
+import React, { useState } from 'react';
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from './components/AppRouter';
+import NavBar from './components/UI/NavBar/NavBar';
 
 function App() {
-
-  const [data,setData] = useState(null);
-
-  useEffect(async () => {
-    await axios.get(`http://api.test-andrew.space/api`,{mode:'cors'})
-    .then((response) => {
-      setData(response.data.msg);
-    });
-  },[])
-  
+  const [showNavBar, setShowNavBar] = useState();
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {
-            !data ? "Loading..." : data
-          }
-        </p>
-      </header>
-    </div>
+    <BrowserRouter>
+      {!showNavBar? <NavBar />: null}
+      <AppRouter  setShowNavBar={setShowNavBar}/>
+    </BrowserRouter>
   );
 }
 
