@@ -1,21 +1,57 @@
-.Button{
-    padding: 0.8rem 2.1rem;
+.Headquarters{
+    &_container{
 
-    border-radius: 1.9rem;
+    }
+    &_content{
+        .buttons_filter{
+            .Button{
+                padding: 0.8rem 2.1rem;
+            
+                border-radius: 1.9rem;
+            
+                color: #6382cf;
+                background-color: #FFF;
+                border: 0.1rem solid #6382cf;
+            
+                font-family: 'Montserrat';
+                font-weight: 300;
+                font-size: 1.2rem;
+            
+                cursor: pointer;
+                &.active{
+                    color: #FFF;
+                    background-color: #6382cf;
+            
+                    font-weight: 600;
+                }
+            }
+        }
+        .Shtab-list_name{
+            text-align: center;
+            font-family: 'Montserrat';
+            font-weight: 700;
+            font-size: 2rem;
+            line-height: 120%;
 
-    color: #6382cf;
-    background-color: #FFF;
-    border: 0.1rem solid #6382cf;
+            color: #9CB8FC;
 
-    font-family: 'Montserrat';
-    font-weight: 300;
-    font-size: 1.2rem;
-
-    cursor: pointer;
-    &.active{
-        color: #FFF;
-        background-color: #6382cf;
-
-        font-weight: 600;
+            margin: 1rem 0;
+        }
+        .Shtab-list{
+            display: flex;
+            flex-wrap: wrap;
+            .Shtab{
+                border-bottom: #b9b9b9 0.1rem solid;
+                &:nth-child(odd){
+                    border-right: #b9b9b9 0.1rem solid;
+                }
+                &:last-child{
+                    border-bottom: none
+                }
+                &:nth-child(-n){
+                    border-bottom: none
+                }
+            }
+        }
     }
 }

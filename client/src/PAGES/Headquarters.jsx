@@ -33,20 +33,24 @@ export default function Headquarters() {
             <button className={`Button ${stateBtn? "active": ""}`} onClick={() => {setAidFilter({...aidFilter, get: !aidFilter.get}); setStateBtn(!stateBtn)}}>Приймаэмо допомогу</button>
             <button className={`Button ${stateBtn2? "active": ""}`} onClick={() => {setAidFilter({...aidFilter, get: !aidFilter.get}); setStateBtn2(!stateBtn2)}}>Надаэмо допомогу</button>
           </div>
-          {stateBtn&&stateBtn2?<div>Штаби які приймають допомогу</div>:null}
-          {stateBtn?
-            shtabGet.map(shtab => 
-              <ShtabItem key={shtab.id} shtab={shtab}/>
-            )
-          :null
-          }
-          {stateBtn&&stateBtn2?<div>Штаби які Надають допомогу</div>:null}
-          {stateBtn2?
-            shtabGive.map(shtab => 
-              <ShtabItem key={shtab.id} shtab={shtab}/>
-            )
-          :null
-          }
+          {stateBtn&&stateBtn2?<div className='Shtab-list_name'>Штаби які приймають допомогу</div>:null}
+          <div className='Shtab-list'>
+            {stateBtn?
+              shtabGet.map(shtab => 
+                <ShtabItem key={shtab.id} shtab={shtab}/>
+              )
+            :null
+            }
+          </div>
+          {stateBtn&&stateBtn2?<div className='Shtab-list_name'>Штаби які Надають допомогу</div>:null}
+          <div className='Shtab-list'>
+            {stateBtn2?
+              shtabGive.map(shtab => 
+                <ShtabItem key={shtab.id} shtab={shtab}/>
+              )
+            :null
+            }
+          </div>
         </div>
       </div>
     </main>

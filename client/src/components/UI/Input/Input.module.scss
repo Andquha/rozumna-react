@@ -1,0 +1,23 @@
+.Input{
+    width: 100%;
+
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+
+    background-color: #ffffff00;
+
+    color: #000000;
+    border-bottom: 1px solid #000000;
+
+    outline: none;
+
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 120%;
+    &::placeholder {
+        color: #696969;
+    }
+    &.error{
+        border-bottom: 1px solid #ff7070;
+    }
+}
