@@ -1,10 +1,20 @@
 import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Routes,  Route, Navigate, useLocation } from "react-router-dom";
 import {publicRoutes} from '../PAGES/router/routs'
 
 export default function AppRouter({setShowNavBar}) {
+  const dispatch = useDispatch();
+  
+  const resetRef = () => {
+    dispatch({type:"RESET-REF", reset: []})
+  }
 
   const location = useLocation();
+    useEffect(()=>{
+      resetRef();
+    },[location])
+
     useEffect(()=>{
         if(location.pathname === '/login' || location.pathname === '/registration'){
             setShowNavBar(true)
@@ -12,7 +22,7 @@ export default function AppRouter({setShowNavBar}) {
             setShowNavBar(false)
         }
     },[location.pathname])
-
+    
   return (
     <Routes>
         {publicRoutes.map(route =>

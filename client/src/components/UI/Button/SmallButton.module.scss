@@ -1,0 +1,16 @@
+.SmallButton{
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 120%;
+
+    color: #000000;
+    margin-right: 2rem;
+    background-color: inherit;
+
+    cursor: pointer;
+
+    &.active{
+        color: #6382cf;
+    }
+} 
+ 

@@ -1,4 +1,5 @@
 .Shtab{
+    position: relative;
     font-family: 'Montserrat';
 
     display: flex;
@@ -37,7 +38,7 @@
                 font-size: 1rem;
                 line-height: 120%;
 
-                color: #6382cf;
+                color: #9CB8FC;
             }
         }
     }
@@ -57,7 +58,16 @@
 
             margin-bottom: 1rem;
         }
-        .Shtab_region{
+        .Shtab_city{
+            font-weight: 600;
+            font-size: 1.4rem;
+            line-height: 120%;
+
+            color: #000;
+
+            margin-bottom: 1rem;
+        }
+        .Shtab_adress{
             font-weight: 600;
             font-size: 1.4rem;
             line-height: 120%;
@@ -81,7 +91,7 @@
                 font-size: 1.4rem;
                 line-height: 120%;
 
-                color: #6382cf;
+                color: #9CB8FC;
 
                 margin-bottom: 0.6rem;
             }
@@ -90,7 +100,7 @@
                 font-size: 1.2rem;
                 line-height: 120%;
 
-                color: #6382cf;
+                color: #9CB8FC;
 
                 margin-top: 1.5rem;
             }

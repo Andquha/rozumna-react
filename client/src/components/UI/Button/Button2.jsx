@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classes from './Button2.module.scss';
 
 const Button2 = ({children, ...props}) => {

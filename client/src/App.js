@@ -5,13 +5,13 @@ import AppRouter from './components/AppRouter';
 import NavBar from './components/UI/NavBar/NavBar';
 
 function App() {
-  const [showNavBar, setShowNavBar] = useState();
+  const [showNavBar, setShowNavBar] = useState(true);
 
   return (
-    <BrowserRouter>
-      {!showNavBar? <NavBar />: null}
-      <AppRouter  setShowNavBar={setShowNavBar}/>
-    </BrowserRouter>
+      <BrowserRouter>
+        {!showNavBar? <NavBar />: null}
+        <AppRouter  setShowNavBar={setShowNavBar}/>
+      </BrowserRouter>
   );
 }
 

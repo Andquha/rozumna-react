@@ -1,55 +1,81 @@
 .Headquarters{
-    &_container{
-
-    }
     &_content{
         .buttons_filter{
-            .Button{
-                padding: 0.8rem 2.1rem;
-            
-                border-radius: 1.9rem;
-            
-                color: #6382cf;
-                background-color: #FFF;
-                border: 0.1rem solid #6382cf;
-            
-                font-family: 'Montserrat';
-                font-weight: 300;
-                font-size: 1.2rem;
-            
-                cursor: pointer;
-                &.active{
-                    color: #FFF;
-                    background-color: #6382cf;
-            
-                    font-weight: 600;
-                }
+            margin-top: 2rem;
+            margin-bottom: 2.4rem;
+            button:first-child{
+                margin-right: 1.8rem;
             }
         }
-        .Shtab-list_name{
-            text-align: center;
-            font-family: 'Montserrat';
-            font-weight: 700;
-            font-size: 2rem;
-            line-height: 120%;
-
-            color: #9CB8FC;
-
-            margin: 1rem 0;
-        }
         .Shtab-list{
-            display: flex;
-            flex-wrap: wrap;
+            position: relative;
+            width: 100;
             .Shtab{
                 border-bottom: #b9b9b9 0.1rem solid;
-                &:nth-child(odd){
+                &:nth-child(even){
                     border-right: #b9b9b9 0.1rem solid;
                 }
                 &:last-child{
                     border-bottom: none
                 }
-                &:nth-child(-n){
+                &:nth-last-child(-2n+2){
                     border-bottom: none
+                }
+            }
+            .Shtab-filter-region{
+                position: relative;
+
+                width: 100%;
+
+                display: flex;
+                flex-wrap: wrap;
+
+                margin-top: 4rem;
+            }
+
+            .Shtab-filter-region-emty{
+                position: relative;
+                width: 100%;
+                height: 4rem;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                font-weight: 400;
+                font-size: 1.5rem;
+                line-height: 120%;
+            
+                color: #898989;
+            }
+        }
+        .Shtab-refs{
+            position: fixed;
+            z-index: 100;
+
+            right: 4.7rem;
+            top: 19rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            height: 50vh;
+
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 120%;
+
+            color: #000000;
+
+            cursor: pointer;
+            .Shtab-refs-list{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .Shtab-refs-list-letter.active{
+                    font-weight: 600;
+                    color: #6382cf;
                 }
             }
         }

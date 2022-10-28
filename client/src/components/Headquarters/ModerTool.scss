@@ -1,0 +1,29 @@
+.ModerTool{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    display: flex;
+    align-items: center;
+
+    .ModerTool-edit{
+        width: 1.5rem;
+        height: 1.5rem;
+
+        margin-right: 0.5rem;
+        cursor: pointer;
+        img{
+            width: 1.5rem;
+        height: 1.5rem;
+        }
+    }
+    .ModerTool-delete{
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+        img{
+            width: 1.5rem;
+            height: 1.5rem;
+        }   
+    }
+}
