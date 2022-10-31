@@ -54,7 +54,7 @@
         },
         {
             "adress": "Місто Львів",
-            "aid": "provide",
+            "aid": "accept",
             "city": "Місто Львів",
             "contactlastname": "Візняк",
             "contactname": "Юрій",
@@ -76,7 +76,7 @@
             "link": "https://varta1.com.ua/amp/uvaga-adresi-i-kontakti-gumanitarnih-shtabiv-na-lvivshchini_341914.html",
             "maplink": "https://goo.gl/maps/JyS77FU1cMbz9Kfq8",
             "name": "Львівський гуманітарний штаб",
-            "region": "Vinitsia"
+            "region": "Zakarpat"
         },
         {
             "adress": "Місто Львів",
@@ -89,7 +89,7 @@
             "link": "https://varta1.com.ua/amp/uvaga-adresi-i-kontakti-gumanitarnih-shtabiv-na-lvivshchini_341914.html",
             "maplink": "https://goo.gl/maps/JyS77FU1cMbz9Kfq8",
             "name": "Львівський гуманітарний штаб",
-            "region": "Vinitsia"
+            "region": "Zakarpat"
         },
         {
             "adress": "Місто Львів",
@@ -103,6 +103,58 @@
             "maplink": "https://goo.gl/maps/JyS77FU1cMbz9Kfq8",
             "name": "Львівський гуманітарний штаб",
             "region": "Zakarpat"
+        },
+        {
+            "adress": "Місто Львів",
+            "aid": "accept",
+            "city": "Місто Львів",
+            "contactlastname": "Візняк",
+            "contactname": "Юрій",
+            "contactphone": "+38 067 672 06 06",
+            "id": "11",
+            "link": "https://varta1.com.ua/amp/uvaga-adresi-i-kontakti-gumanitarnih-shtabiv-na-lvivshchini_341914.html",
+            "maplink": "https://goo.gl/maps/JyS77FU1cMbz9Kfq8",
+            "name": "Львівський гуманітарний штаб",
+            "region": "Dnipro"
+        },
+        {
+            "adress": "Місто Львів",
+            "aid": "accept",
+            "city": "Місто Львів",
+            "contactlastname": "Візняк",
+            "contactname": "Юрій",
+            "contactphone": "+38 067 672 06 06",
+            "id": "9",
+            "link": "https://varta1.com.ua/amp/uvaga-adresi-i-kontakti-gumanitarnih-shtabiv-na-lvivshchini_341914.html",
+            "maplink": "https://goo.gl/maps/JyS77FU1cMbz9Kfq8",
+            "name": "Львівський гуманітарний штаб",
+            "region": "Donetsk"
+        },
+        {
+            "adress": "Місто Львів",
+            "aid": "accept",
+            "city": "Місто Львів",
+            "contactlastname": "Візняк",
+            "contactname": "Юрій",
+            "contactphone": "+38 067 672 06 06",
+            "id": "12",
+            "link": "https://varta1.com.ua/amp/uvaga-adresi-i-kontakti-gumanitarnih-shtabiv-na-lvivshchini_341914.html",
+            "maplink": "https://goo.gl/maps/JyS77FU1cMbz9Kfq8",
+            "name": "Львівський гуманітарний штаб",
+            "region": "Vinitsia"
+        },
+        {
+            "adress": "Місто Львів",
+            "aid": "provide",
+            "city": "Місто Львів",
+            "contactlastname": "Візняк",
+            "contactname": "Юрій",
+            "contactphone": "+38 067 672 06 06",
+            "id": "10",
+            "link": "https://varta1.com.ua/amp/uvaga-adresi-i-kontakti-gumanitarnih-shtabiv-na-lvivshchini_341914.html",
+            "maplink": "https://goo.gl/maps/JyS77FU1cMbz9Kfq8",
+            "name": "Львівський гуманітарний штаб",
+            "region": "Kyiv"
         }
     ]
 }

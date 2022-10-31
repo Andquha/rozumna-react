@@ -8,6 +8,7 @@ import '../styles/Headquarters.scss';
 import { useRef } from 'react';
 import SmallButton from '../components/UI/Button/SmallButton';
 import Modal from '../components/UI/Modal/Modal';
+import HeadquartersUtils from '../utils/HeadqartersUtils';
 
 
 export default function Headquarters() {
@@ -27,9 +28,11 @@ export default function Headquarters() {
   const [edit, setEdit] = useState(false)
   const [visibleModal, setVisibleModal] = useState(false)
   const regionsLetterRef = useRef([]);
+  const refs = useSelector(state => state.refs)
+  const observer = useRef([])
   
   useEffect(()=>{   //Виконуэмо функцію при загрузці сторінки
-    fetchingShtab()
+    fetchingShtab();
   },[])
 
   const [fetchingShtab, isLoading, isError] = useFetching( async () => {   //Відправляемо запрос в наш кастомний хук
@@ -55,29 +58,60 @@ export default function Headquarters() {
         />
         ))
     )
-    
-  },[ shtabs , aidFilter, edit])
-
-
-  const refs = useSelector(state => state.refs)
   
-  // useEffect(() => {  //Відстежуємо області. Якщо розділ області на екрані то подсвічуємо навігацію справа
-  //   if(refs.length){
-  //     refs.forEach((el,index) => {
-  //       if(observer.current[index]) observer.current[index].disconnect()
-  //       var callback = function(entries, observer) {
-  //       if(entries[0].isIntersecting){
-  //         regionsLetterRef.current[index].className = `${regionsLetterRef.current[index].className} active`
-  //       }else{
-  //         regionsLetterRef.current[index].className = regionsLetterRef.current[index].className.split(" ")[0]
-  //       }
-  //     };
-  //     observer.current[index] = new IntersectionObserver(callback);
-  //     observer.current[index].observe(refs[index]);
-  //     })
-  //   }
-  // },[refs])
+  },[ shtabs , aidFilter, edit, isLoading])
 
+
+  const ShtabRefMemo = useMemo(()=>{
+    const shtabfiltred = HeadquartersUtils.ArraysFilter(shtabs);
+    const currentRefs = refs.filter(el => el.offsetWidth>0).sort((a, b) => a.children[0].innerText[0].localeCompare(b.children[0].innerText[0]))
+    console.log(currentRefs)
+    return(
+      shtabfiltred.map((element, index) => {
+        if(aidFilter){
+          if(element.shtablistAccept.length >=1 ){
+            return(
+            <div key={element.fullname} className='Shtab-refs-list'>
+              <div className='Shtab-refs-list-letter' onClick={()=>{ScrollToElement(currentRefs.filter(el => el.children[0].innerText.split(' ')[0] === element.fullname)[0])}} ref={el => regionsLetterRef.current[index] = el}>{element.name}</div>
+            </div>)
+          }
+        }else{
+          if(element.shtablistProvide.length >=1 ){
+            return(
+            <div key={element.fullname} className='Shtab-refs-list'>
+              <div className='Shtab-refs-list-letter' onClick={()=>{ScrollToElement(currentRefs.filter(el => el.children[0].innerText.split(' ')[0] === element.fullname)[0])}} ref={el => regionsLetterRef.current[index] = el}>{element.name}</div>
+            </div>)
+          }
+        }
+      })
+    )
+
+  },[shtabs,aidFilter, refs])
+
+
+  // useEffect(()=>{
+  //   console.log(refs)
+  //   // console.log(regionsLetterRef.current.filter(el => el!== null))
+  // },[ShtabRefMemo, refs])
+
+
+  
+  useEffect(() => {  //Відстежуємо області. Якщо розділ області на екрані то подсвічуємо навігацію справа
+    if(refs.length){
+      refs.filter(el => el.offsetWidth>0).sort((a, b) => a.children[0].innerText[0].localeCompare(b.children[0].innerText[0])).forEach((el,index) => {
+        if(observer.current[index]) observer.current[index].disconnect()
+        var callback = function(entries, observer) {
+        if(entries[0].isIntersecting){
+          regionsLetterRef.current.filter(el => el !== null)[index].className = `${regionsLetterRef.current.filter(el => el!== null)[index].className} active`
+        }else{
+          regionsLetterRef.current.filter(el => el !== null)[index].className = regionsLetterRef.current.filter(el => el!== null)[index].className.split(" ")[0]
+        }
+      };
+      observer.current[index] = new IntersectionObserver(callback);
+      observer.current[index].observe(refs.filter(el => el.offsetWidth>0).sort((a, b) => a.children[0].innerText[0].localeCompare(b.children[0].innerText[0]))[index]);
+      })
+    }
+  })
 
   const ScrollToElement = (el) =>  el.scrollIntoView({behavior: 'smooth' })  //Скрол до розділа області
 
@@ -108,8 +142,9 @@ export default function Headquarters() {
             {ShtabSectionMemo}
           </div>
 
-          <div className='Shtab-refs'>  
-            {refs.length &&    
+          <div className='Shtab-refs'> 
+            {ShtabRefMemo} 
+            {/* {refs.length &&    
               refs.filter(el => el.offsetWidth>0).sort((a, b) => a.children[0].innerText[0].localeCompare(b.children[0].innerText[0])).map((el, index)=>{
                 return(
                   <div key={el.children[0].innerText[0]} className='Shtab-refs-list'>
@@ -117,9 +152,9 @@ export default function Headquarters() {
                   </div>
                 )
               })
-            }
+            } */}
           </div>
-          
+
         </div>
       </div>
     </main>

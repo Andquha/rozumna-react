@@ -1,0 +1,1 @@
+ScrollToElement(currentRefs.filter(el => el.children[0].innerText.split(' ')[0] === element.fullname)) 
