@@ -52,8 +52,8 @@
         .Shtab-refs{
             position: fixed;
             z-index: 100;
-
-            right: 4.7rem;
+            
+            right: 2.7rem;
             top: 19rem;
 
             display: flex;
@@ -61,6 +61,7 @@
             justify-content: space-between;
 
             height: 50vh;
+            width: 10rem;
 
             font-weight: 400;
             font-size: 1rem;
@@ -68,11 +69,11 @@
 
             color: #000000;
 
-            cursor: pointer;
             .Shtab-refs-list{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                cursor: pointer;
                 .Shtab-refs-list-letter.active{
                     font-weight: 600;
                     color: #6382cf;

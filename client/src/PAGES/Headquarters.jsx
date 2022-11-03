@@ -1,15 +1,13 @@
-import React, { useState , useEffect, useMemo } from 'react';
+import React, { useState , useEffect, useMemo, useRef } from 'react';
 import { useSelector } from 'react-redux'
 import { useFetching } from '../hooks/useFetching';
-import Button from '../components/UI/Button/Button';
-import ShtabSection from '../components/Headquarters/ShtabSection';
 import HeadquartersServise from '../api/HeadquartersServise';
-import '../styles/Headquarters.scss';
-import { useRef } from 'react';
-import SmallButton from '../components/UI/Button/SmallButton';
-import Modal from '../components/UI/Modal/Modal';
 import HeadquartersUtils from '../utils/HeadqartersUtils';
-
+import Button from '../components/UI/Button/Button';
+import SmallButton from '../components/UI/Button/SmallButton';
+import ShtabSection from '../components/Headquarters/ShtabSection';
+import Modal from '../components/UI/Modal/Modal';
+import '../styles/Headquarters.scss';
 
 export default function Headquarters() {
   const regions = [
@@ -45,7 +43,7 @@ export default function Headquarters() {
 
     if(isError) return (<div>Виникла помилка: {isError}</div>)
 
-    return(   //Нашу секцію на кожну область
+    return(   //Повертаэмо нашу секцію на кожну область
         regions.map(region => (
         <ShtabSection 
           key={region.region} 
@@ -63,23 +61,38 @@ export default function Headquarters() {
 
 
   const ShtabRefMemo = useMemo(()=>{
-    const shtabfiltred = HeadquartersUtils.ArraysFilter(shtabs);
+    const shtabfiltred = HeadquartersUtils.ArraysFilter(shtabs); //Проходимся пр масиву і отримуем літери областей в яких є хоч якісь штаби
     const currentRefs = refs.filter(el => el.offsetWidth>0).sort((a, b) => a.children[0].innerText[0].localeCompare(b.children[0].innerText[0]))
-    console.log(currentRefs)
-    return(
+    return( //Повертаємо літери з силками на самі області в залежності від фільтру(надають/приймають)
       shtabfiltred.map((element, index) => {
         if(aidFilter){
           if(element.shtablistAccept.length >=1 ){
             return(
             <div key={element.fullname} className='Shtab-refs-list'>
-              <div className='Shtab-refs-list-letter' onClick={()=>{ScrollToElement(currentRefs.filter(el => el.children[0].innerText.split(' ')[0] === element.fullname)[0])}} ref={el => regionsLetterRef.current[index] = el}>{element.name}</div>
+              <div 
+                className='Shtab-refs-list-letter' 
+                onMouseOver={(e)=>{e.target.innerText = element.fullname}}
+                onMouseLeave={(e)=>{e.target.innerText = element.name}}
+                onClick={()=>{ScrollToElement(currentRefs.filter(el => el.children[0].innerText.split(' ')[0] === element.fullname)[0])}} 
+                ref={el => regionsLetterRef.current[index] = el}
+                >
+                  {element.name}
+                </div>
             </div>)
           }
         }else{
           if(element.shtablistProvide.length >=1 ){
             return(
             <div key={element.fullname} className='Shtab-refs-list'>
-              <div className='Shtab-refs-list-letter' onClick={()=>{ScrollToElement(currentRefs.filter(el => el.children[0].innerText.split(' ')[0] === element.fullname)[0])}} ref={el => regionsLetterRef.current[index] = el}>{element.name}</div>
+              <div 
+                className='Shtab-refs-list-letter' 
+                onMouseOver={(e)=>{e.target.innerText = element.fullname}}
+                onMouseLeave={(e)=>{e.target.innerText = element.name}}
+                onClick={()=>{ScrollToElement(currentRefs.filter(el => el.children[0].innerText.split(' ')[0] === element.fullname)[0])}} 
+                ref={el => regionsLetterRef.current[index] = el}
+                >
+                  {element.name}
+                </div>
             </div>)
           }
         }
@@ -88,14 +101,6 @@ export default function Headquarters() {
 
   },[shtabs,aidFilter, refs])
 
-
-  // useEffect(()=>{
-  //   console.log(refs)
-  //   // console.log(regionsLetterRef.current.filter(el => el!== null))
-  // },[ShtabRefMemo, refs])
-
-
-  
   useEffect(() => {  //Відстежуємо області. Якщо розділ області на екрані то подсвічуємо навігацію справа
     if(refs.length){
       refs.filter(el => el.offsetWidth>0).sort((a, b) => a.children[0].innerText[0].localeCompare(b.children[0].innerText[0])).forEach((el,index) => {
@@ -135,7 +140,9 @@ export default function Headquarters() {
             <SmallButton
               active={edit}  //Вкл/Викл кнопки редагування
               onClick={() => setEdit(!edit)}
-            >Редагувати</SmallButton >
+            >
+              Редагувати
+            </SmallButton >
           </div>
 
           <div className='Shtab-list'>
@@ -144,15 +151,6 @@ export default function Headquarters() {
 
           <div className='Shtab-refs'> 
             {ShtabRefMemo} 
-            {/* {refs.length &&    
-              refs.filter(el => el.offsetWidth>0).sort((a, b) => a.children[0].innerText[0].localeCompare(b.children[0].innerText[0])).map((el, index)=>{
-                return(
-                  <div key={el.children[0].innerText[0]} className='Shtab-refs-list'>
-                    <div onClick={()=>{ScrollToElement(el)}} ref={el => regionsLetterRef.current[index] = el} className='Shtab-refs-list-letter'>{el.children[0].innerText[0]}</div>
-                  </div>
-                )
-              })
-            } */}
           </div>
 
         </div>
